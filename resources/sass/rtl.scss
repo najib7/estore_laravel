@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css?family=Almarai&display=swap");
+
+.rtl {
+  font-family: "Almarai", sans-serif;
+  text-align: right !important;
+
+  .sb-topnav {
+    .navbar-nav {
+      margin-right: auto !important;
+      margin-left: 0 !important;
+    }
+  }
+
+  #layoutSidenav {
+    #layoutSidenav_nav {
+      transform: translateX($sidenav-base-width);
+    }
+    // Wraps the content when using the sidenav layout
+    #layoutSidenav_content {
+      margin-right: -$sidenav-base-width;
+      margin-left: 0;
+    }
+  }
+
+  &.sb-nav-fixed {
+    #layoutSidenav {
+      #layoutSidenav_content {
+        padding-right: $sidenav-base-width;
+        padding-left: 0;
+      }
+    }
+  }
+
+  .sb-sidenav {
+    .sb-sidenav-menu {
+      .nav {
+        .nav-link {
+          .sb-sidenav-collapse-arrow {
+            margin-right: auto;
+            margin-left: 0;
+          }
+          &.collapsed {
+            .sb-sidenav-collapse-arrow {
+              transform: rotate(90deg);
+            }
+          }
+        }
+        .sb-sidenav-menu-nested {
+          margin-right: 1.5rem;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+
+  .nav,
+  .sb-sidenav-menu {
+    .nav-link .sb-nav-link-icon {
+      margin-left: 0.5rem;
+    }
+  }
+
+  .sb-topnav {
+    .navbar-nav {
+      margin-right: auto;
+    }
+  }
+
+  .modal-header .close {
+    padding: 1rem 1rem;
+    margin: -1rem auto -1rem -1rem;
+  }
+
+  .pagination {
+    // padding-right: 0;
+    direction: ltr;
+  }
+
+  // align items
+  .reverse-align {
+    text-align: left;
+  }
+
+  .reverse-float {
+    float: left;
+  }
+
+
+  .dropdown-menu {
+    left: 10px;
+    right: auto;
+  }
+} // end rtl
+
+.sb-sidenav-toggled {
+  #layoutSidenav {
+    #layoutSidenav_nav {
+      transform: translateX(0);
+    }
+  }
+}
+
+// Responsive styling for the sidenav layout
+@include media-breakpoint-up(lg) {
+  .rtl {
+    #layoutSidenav {
+      #layoutSidenav_nav {
+        transform: translateX(0);
+      }
+      #layoutSidenav_content {
+        margin-right: 0;
+        // margin-right: 0;
+      }
+    }
+    // Behavior for the sidenav collapse on screens larger than the med breakpoint
+    &.sb-sidenav-toggled {
+      #layoutSidenav {
+        #layoutSidenav_nav {
+          transform: translateX($sidenav-base-width);
+        }
+        #layoutSidenav_content {
+          margin-right: -$sidenav-base-width;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

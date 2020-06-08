@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.reverse-align {
+  text-align: right;
+}
+
+.reverse-float {
+  float: right;
+}
+
+// for print
+
+.toPrint {
+  display: none;
+}
+
+.dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+.custom-nav .nav-link {
+  background: #343a40;
+  margin: 5px 0 0px 5px;
+}
+
+.custom-nav .nav-link:hover {
+  background: #343a408f;
+}
+
+.custom-nav .nav-link.active {
+  background: #343a408f;
+}
+
+@media print {
+  * {
+    visibility: hidden;
+  }
+  .toPrint {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 18px;
+    visibility: visible !important;
+    display: block;
+
+    & * {
+      visibility: visible !important;
+    }
+  }
+}
+
+// tables
+.x-table {
+  tr {
+    td:last-child,
+    td:first-child,
+    .tdwidth {
+      width: 1%;
+      white-space: nowrap;
+    }
+  }
+}
