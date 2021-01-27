@@ -70,16 +70,16 @@ export default {
 	},
 	methods: {
 		submit(m) {
-         m.preventDefault()
-         this.formErrors = {}
-         this.postData('/api/suppliers', this.form).then(res => {
-            if(res.status === 'success') {
-               this.swalSuccess(res.message)
-               this.$emit('succeed')
-            } else if (res.status === 'error') {
-					this.formErrors = response.message
-            }
-         })
+            m.preventDefault()
+            this.formErrors = {}
+            this.postData('/api/suppliers', this.form).then(res => {
+                if(res.status === 'success') {
+                this.swalSuccess(res.message)
+                this.$emit('succeed')
+                } else if (res.status === 'error') {
+                    this.formErrors = res.message
+                }
+            })
 		}
 	}
 }
