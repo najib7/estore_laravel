@@ -1,1 +1,96 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{1:function(e,a,t){e.exports=t("oB8U")},oB8U:function(e,a){function t(e,a,t){return a in e?Object.defineProperty(e,a,{value:t,enumerable:!0,configurable:!0,writable:!0}):e[a]=t,e}window.addEventListener("load",(function(){var e;function a(e){var a=document.getElementById(e.id).getContext("2d");new Chart(a,{type:e.type,data:e.data,options:{scales:{yAxes:[{ticks:{beginAtZero:!0}}]}}})}Chart.defaults.global.defaultFontFamily='"Almarai", sans-serif',Chart.defaults.global.defaultFontSize=14,axios.get("/api/stats/chart").then((function(o){var n,l,r,s;e=o.data,a({id:"chart-count",type:"line",data:{labels:Object.keys(e.purchases.count),datasets:[(n={label:lang("app.common.purchases"),data:Object.values(e.purchases.count),borderWidth:1,fill:!1,borderColor:"#0080ff"},t(n,"borderWidth",4),t(n,"lineTension",0),n),(l={label:lang("app.common.sales"),data:Object.values(e.sales.count),borderWidth:1,fill:!1,borderColor:"#f32f2f"},t(l,"borderWidth",4),t(l,"lineTension",0),l)]}}),a({id:"chart-profits",type:"bar",data:{labels:Object.keys(e.purchases.profits),datasets:[(r={label:lang("app.common.purchases"),data:Object.values(e.purchases.profits),borderWidth:1,fill:!1,backgroundColor:"#0080ff"},t(r,"borderWidth",4),t(r,"lineTension",0),r),(s={label:lang("app.common.sales"),data:Object.values(e.sales.profits),borderWidth:1,fill:!1,backgroundColor:"#f32f2f"},t(s,"borderWidth",4),t(s,"lineTension",0),s)]}})}))}))}},[[1,0]]]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/chart"],{
+
+/***/ "./resources/js/Chart.js/chart.js":
+/*!****************************************!*\
+  !*** ./resources/js/Chart.js/chart.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+window.addEventListener("load", function () {
+  var chart;
+  Chart.defaults.global.defaultFontFamily = '"Almarai", sans-serif';
+  Chart.defaults.global.defaultFontSize = 14;
+  axios.get("/api/stats/chart").then(function (res) {
+    var _ref, _ref2, _ref3, _ref4;
+
+    // console.log(res.data);
+    chart = res.data;
+    createChart({
+      id: 'chart-count',
+      type: 'line',
+      data: {
+        labels: Object.keys(chart.purchases['count']),
+        datasets: [(_ref = {
+          label: lang('app.common.purchases'),
+          data: Object.values(chart.purchases['count']),
+          borderWidth: 1,
+          fill: false,
+          borderColor: '#0080ff'
+        }, _defineProperty(_ref, "borderWidth", 4), _defineProperty(_ref, "lineTension", 0), _ref), (_ref2 = {
+          label: lang('app.common.sales'),
+          data: Object.values(chart.sales['count']),
+          borderWidth: 1,
+          fill: false,
+          borderColor: '#f32f2f'
+        }, _defineProperty(_ref2, "borderWidth", 4), _defineProperty(_ref2, "lineTension", 0), _ref2)]
+      }
+    });
+    createChart({
+      id: 'chart-profits',
+      type: 'bar',
+      data: {
+        labels: Object.keys(chart.purchases['profits']),
+        datasets: [(_ref3 = {
+          label: lang('app.common.purchases'),
+          data: Object.values(chart.purchases['profits']),
+          borderWidth: 1,
+          fill: false,
+          backgroundColor: '#0080ff'
+        }, _defineProperty(_ref3, "borderWidth", 4), _defineProperty(_ref3, "lineTension", 0), _ref3), (_ref4 = {
+          label: lang('app.common.sales'),
+          data: Object.values(chart.sales['profits']),
+          borderWidth: 1,
+          fill: false,
+          backgroundColor: '#f32f2f'
+        }, _defineProperty(_ref4, "borderWidth", 4), _defineProperty(_ref4, "lineTension", 0), _ref4)]
+      }
+    });
+  });
+
+  function createChart(object) {
+    var ctx = document.getElementById(object.id).getContext("2d");
+    var myChart = new Chart(ctx, {
+      type: object.type,
+      data: object.data,
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+});
+
+/***/ }),
+
+/***/ 1:
+/*!**********************************************!*\
+  !*** multi ./resources/js/Chart.js/chart.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! /home/najib/projects/estore/resources/js/Chart.js/chart.js */"./resources/js/Chart.js/chart.js");
+
+
+/***/ })
+
+},[[1,"/js/manifest"]]]);
+//# sourceMappingURL=chart.js.map
