@@ -33,8 +33,8 @@ Route::middleware(['auth:web', 'locale'])->group(function () {
     // invoices
     Route::view('invoice', 'invoice.sale');
 
-    Route::get('print/sale/{id}', 'Printcontroller@sale');
-    Route::get('print/purchase/{id}', 'Printcontroller@purchase');
+    Route::get('print/sale/{id}', 'PrintController@sale');
+    Route::get('print/purchase/{id}', 'PrintController@purchase');
 });
 
 
