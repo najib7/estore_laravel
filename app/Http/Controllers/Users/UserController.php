@@ -53,7 +53,7 @@ class UserController extends Controller
             'image'      => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'address'    => 'required|string|max:255',
             'dob'        => 'date|before:5 years ago|nullable',
-            'phone'      => 'required|size:10',
+            'phone'      => 'required|numeric',
             'group' => 'required|numeric|exists:users_groups,id'
         ]);
 
@@ -116,7 +116,7 @@ class UserController extends Controller
             'image'      => 'image|mimes:jpeg,png,jpg|max:2048',
             'address'    => 'required|string|max:255',
             'dob'        => 'date|before:5 years ago|nullable',
-            'phone'      => 'required|size:10',
+            'phone'      => 'required|numeric',
             'group'      => 'required|numeric|exists:users_groups,id'
         ]);
 
