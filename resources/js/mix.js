@@ -1,7 +1,8 @@
 export default {
    data() {
       return {
-         testMix: process.env
+         testMix: process.env,
+         submitLoading: false,
       };
    },
    methods: {
@@ -40,6 +41,7 @@ export default {
             formData.append(field, value);
          }
 
+         this.submitLoading = true
          return axios
             .post(url, formData, {
                headers: {
@@ -51,7 +53,10 @@ export default {
             })
             .catch(err => {
                this.swalFailed(this.__("app.msg.post_failed"));
-            });
+            })
+            .finally(() => {
+               this.submitLoading = false
+            })
       },
       updateData(url, form) {
          let formData = new FormData();
@@ -61,6 +66,7 @@ export default {
             formData.append(field, value);
          }
 
+         this.submitLoading = true
          return axios
             .post(url, formData, {
                headers: {
@@ -72,7 +78,10 @@ export default {
             })
             .catch(err => {
                this.swalFailed(this.__("app.msg.post_failed"));
-            });
+            })
+            .finally(() => {
+               this.submitLoading = false
+            })
       },
       fetchData(url) {
          return axios

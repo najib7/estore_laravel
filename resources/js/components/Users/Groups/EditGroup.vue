@@ -6,7 +6,13 @@
 		:title="__('app.groups.edit')"
 		:ok-title="__('app.common.save')"
 		:cancel-title="__('app.common.close')"
+      :ok-disabled="submitLoading"
 	>
+      <template #modal-ok>
+         Edit
+         <div v-if="submitLoading" class="spinner-border spinner-border-sm" role="status"></div>
+      </template>
+
 		<form>
 			<div class="form-group">
 				<label for="name">{{ __('app.groups.name') }}</label>

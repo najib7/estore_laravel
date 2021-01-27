@@ -7,7 +7,13 @@
 		:title="__('app.users.edit', {user: user.username})"
 		:ok-title="__('app.common.save')"
 		:cancel-title="__('app.common.close')"
+      :ok-disabled="submitLoading"
 	>
+      <template #modal-ok>
+         Edit
+         <div v-if="submitLoading" class="spinner-border spinner-border-sm" role="status"></div>
+      </template>
+
 		<form>
 			<div class="form-row">
 				<div class="form-group col-md-6">
